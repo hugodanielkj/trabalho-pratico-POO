@@ -44,21 +44,21 @@ int main ( ) {
   }
 
   // Criando uma imagem preta
-  criaImagemPreta (5 , imgPreta ) ; // Cria uma imagem preta de dimensao 5x5
+  Imagem imgPreta = Imagem(5) ; // Cria uma imagem preta de dimensao 5x5
   std :: cout << " Imagem Preta :" << std :: endl ;
-  imprimeImagem ( imgPreta ) ; // Exibe a imagem preta
-  adicionaBorda ( imgPreta ) ; // Adiciona borda na imagem preta ( novo tamanho = > 9x9)
+  imgPreta.imprimeImagem () ; // Exibe a imagem preta
+  imgPreta.adicionaBorda () ; // Adiciona borda na imagem preta ( novo tamanho = > 9x9)
   std :: cout << " Imagem Preta com Borda :" << std :: endl ;
-  imprimeImagem ( imgPreta ) ; // Exibe a imagem preta com borda
+  imgPreta.imprimeImagem () ; // Exibe a imagem preta com borda
 
   // Criando uma imagem branca
-  criaImagemPreta (5 , imgBranca ) ; // Cria uma imagem preta de dimensao 5x5
-  inverteImagem ( imgBranca ) ; // Inverte os pixels da imagem preta , tornando -os brancos
+  Imagem imgBranca = Imagem(5) ; // Cria uma imagem preta de dimensao 5x5
+  imgBranca.inverteImagem () ; // Inverte os pixels da imagem preta , tornando -os brancos
   std :: cout << " Imagem Branca :" << std :: endl ;
-  imprimeImagem ( imgBranca ) ; // Exibe a imagem branca
-  adicionaBorda ( imgBranca ) ; // Adiciona borda na imagem branca ( novo tamanho = > 7x7)
+  imgBranca.imprimeImagem () ; // Exibe a imagem branca
+  imgBranca.adicionaBorda () ; // Adiciona borda na imagem branca ( novo tamanho = > 7x7)
   std :: cout << " Imagem Branca com Borda :" << std :: endl ;
-  imprimeImagem ( imgBranca ) ; // Exibe a imagem branca com borda
+  imgBranca.imprimeImagem () ; // Exibe a imagem branca com borda
 
   return 0;
 }
