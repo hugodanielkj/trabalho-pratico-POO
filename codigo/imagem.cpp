@@ -14,22 +14,22 @@ Imagem::~Imagem(){
   delete[] _matriz;
 }
 
-void leImagem(){
+void Imagem::leImagem(){
   for(int i=0;i<_dimensao;i++)
     for(int j=0;j<_dimensao;j++)
       std::cin >> _matriz[i][j];
 }
 
-void Imagem::soma(int img2, int imgResultante){
+void Imagem::soma(Imagem img2, Imagem imgResultante){
   for(int i=0;i<_dimensao;i++)
     for(int j=0;j<_dimensao;j++)
-      imgResultante->_matriz[i][j] = this->_matriz[i][j] + img2->_matriz[i][j];
+      imgResultante._matriz[i][j] = _matriz[i][j] + img2._matriz[i][j];
 }
 
-void Imagem::subtrai(int img2, int imgResultante){
+void Imagem::subtrai(Imagem img2, Imagem imgResultante){
   for(int i=0;i<_dimensao;i++)
     for(int j=0;j<_dimensao;j++)
-      imgResultante->_matriz[i][j] = this->_matriz[i][j] - img2->_matriz[i][j];
+      imgResultante._matriz[i][j] = _matriz[i][j] - img2._matriz[i][j];
 }
 
 void Imagem::inverteImagem(){
@@ -40,10 +40,10 @@ void Imagem::inverteImagem(){
     }    
 }
 
-bool Imagem::compara(int img2){
+bool Imagem::compara(Imagem img2){
   for(int i=0;i<_dimensao;i++)
     for(int j=0;j<_dimensao;j++)
-      if( this->_matriz[i][j] != img2->_matriz[i][j] )
+      if( _matriz[i][j] != img2._matriz[i][j] )
         return false;
   return true;
 }

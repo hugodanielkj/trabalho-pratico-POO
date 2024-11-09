@@ -3,19 +3,15 @@
 
 int main ( ) {
   int dimensao;
-  std::cout << "Qual a dimensao da imagem: "
+  std::cout << "Qual a dimensao da imagem: ";
   std::cin >> dimensao;
 
-  Imagem img1 , img2 , imgSomada , imgSubtraida , imgInvertida , imgPreta , imgBranca ;
-
   // Inicializacao das imagens do programa
-  Imagem img1 = Imagem(_dimensao);
-  Imagem img2 = Imagem(_dimensao);
-  Imagem imgSomada = Imagem(_dimensao);
-  Imagem imgSubtraida = Imagem(_dimensao);
-  Imagem imgInvertida = Imagem(_dimensao);
-  Imagem imgPreta = Imagem(_dimensao);
-  Imagem imgBranca = Imagem(_dimensao);
+  Imagem img1 = Imagem(dimensao);
+  Imagem img2 = Imagem(dimensao);
+  Imagem imgSomada = Imagem(dimensao);
+  Imagem imgSubtraida = Imagem(dimensao);
+  Imagem imgInvertida = Imagem(dimensao);
 
   // Leitura de imagens
   img1.leImagem(); // Le uma imagem quadrada em escala de cinza (uma matriz de inteiros nxn)

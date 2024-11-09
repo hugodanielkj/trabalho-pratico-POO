@@ -1,5 +1,5 @@
 class Imagem {
-  private:
+  private: 
     //Dados
     int _dimensao;
     int **_matriz;
@@ -13,10 +13,10 @@ class Imagem {
 
     //Procedimentos
     void leImagem();
-    void soma();
-    void subtrai();
+    void soma(Imagem img2, Imagem imgResultante);
+    void subtrai(Imagem img2, Imagem imgResultante);
     void inverteImagem();
-    bool compara();
+    bool compara(Imagem img2);
     void imprimeImagem();
     void adicionaBorda();
 };
