@@ -1,0 +1,6 @@
+DOCUMENTACAO TRABALHO 1 - PROGRAMACAO 2
+
+OBSERVACOES:
+1. A maior parte das funcoes nao havera parametro como ocorre no pdf, pois as imagens do programa serao objetos da classe Imagem, por isso, quando precisar executar uma funcao, sera feita da seguinte forma: imagem1.leImagem() ao inves de ser feito da seguinte forma: leImagem(imagem 1). Isso foi feito para utilizar os conceitos de objeto e deixar o codigo mais limpo.
+
+2. Nao havera a funcao criaImagemPreta, para que o codigo seja reutilizavel e nao haja mais de uma funcao de criar imagem de forma desnecessaria. Assim, a imagemPreta sera criada como qualquer outra imagem, utilizando o Constructor da classe Imagem.
