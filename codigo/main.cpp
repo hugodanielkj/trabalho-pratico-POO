@@ -2,25 +2,26 @@
 #include "imagem.h"
 
 int main ( ) {
-  int dimensao;
-  std::cout << "Qual a dimensao da imagem: ";
-  std::cin >> dimensao;
-
   // Inicializacao das imagens do programa
+  int dimensao;
+  std::cout << "Qual a dimensao da imagem 1: ";
+  std::cin >> dimensao;
   Imagem img1 = Imagem(dimensao);
+  img1.leImagem();
+  std::cout << "Qual a dimensao da imagem 2: ";
+  std::cin >> dimensao;
   Imagem img2 = Imagem(dimensao);
+  img2.leImagem();
+
   Imagem imgSomada = Imagem(dimensao);
   Imagem imgSubtraida = Imagem(dimensao);
   Imagem imgInvertida = Imagem(dimensao);
 
-  // Leitura de imagens
-  img1.leImagem(); // Le uma imagem quadrada em escala de cinza (uma matriz de inteiros nxn)
-  img2.leImagem(); // Le uma segunda imagem
-
   // Somando duas imagens
-  img1.soma (img2, imgSomada); // imgSomada = img1 + img2
+  img1.soma(img2, imgSomada); // imgSomada = img1 + img2
   std::cout << "Imagem Somada :" << std::endl;
   imgSomada.imprimeImagem(); // Exibe a imagem resultante da soma
+
 
   // Subtraindo duas imagens
   img1.subtrai(img2, imgSubtraida); // imgSubtraida = img1 - img2
@@ -40,7 +41,8 @@ int main ( ) {
   }
 
   // Criando uma imagem preta
-  Imagem imgPreta = Imagem(5) ; // Cria uma imagem preta de dimensao 5x5
+  Imagem imgPreta = Imagem(5); // Cria uma imagem preta de dimensao 5x5
+  imgPreta.criaImagemPreta();
   std :: cout << " Imagem Preta :" << std :: endl ;
   imgPreta.imprimeImagem () ; // Exibe a imagem preta
   imgPreta.adicionaBorda () ; // Adiciona borda na imagem preta ( novo tamanho = > 9x9)
@@ -48,7 +50,8 @@ int main ( ) {
   imgPreta.imprimeImagem () ; // Exibe a imagem preta com borda
 
   // Criando uma imagem branca
-  Imagem imgBranca = Imagem(5) ; // Cria uma imagem preta de dimensao 5x5
+  Imagem imgBranca = Imagem(5); // Cria uma imagem preta de dimensao 5x5
+  imgBranca.criaImagemPreta();
   imgBranca.inverteImagem () ; // Inverte os pixels da imagem preta , tornando -os brancos
   std :: cout << " Imagem Branca :" << std :: endl ;
   imgBranca.imprimeImagem () ; // Exibe a imagem branca
