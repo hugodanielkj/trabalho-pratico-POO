@@ -1,8 +1,12 @@
 class Imagem {
   private: 
-    //Dados
+    //Data
     int _dimensao;
     int **_matriz;
+
+    //Private Methods
+    void alocaNovaMatrizComBorda(int tamanho_borda);
+    void adicionaUmPixelDeBorda(int index_borda, int cor);
 
   public:
     //Constructor

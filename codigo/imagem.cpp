@@ -27,7 +27,10 @@ void Imagem::soma(Imagem &img2, Imagem &imgResultante){
   }
   for(int i=0;i<_dimensao;i++)
     for(int j=0;j<_dimensao;j++){
-      imgResultante._matriz[i][j] = _matriz[i][j] + img2._matriz[i][j];
+      if(_matriz[i][j] + img2._matriz[i][j] <= 255)
+        imgResultante._matriz[i][j] = _matriz[i][j] + img2._matriz[i][j];
+      else
+        imgResultante._matriz[i][j] = 255;
     }
 }
 
@@ -38,7 +41,10 @@ void Imagem::subtrai(Imagem &img2, Imagem &imgResultante){
   }
   for(int i=0;i<_dimensao;i++)
     for(int j=0;j<_dimensao;j++)
-      imgResultante._matriz[i][j] = _matriz[i][j] - img2._matriz[i][j];
+      if(_matriz[i][j] - img2._matriz[i][j] >= 0)
+        imgResultante._matriz[i][j] = _matriz[i][j] - img2._matriz[i][j];
+      else
+        imgResultante._matriz[i][j] = 0;
 }
 
 void Imagem::inverteImagem(){
@@ -66,12 +72,48 @@ void Imagem::imprimeImagem(){
 }
 
 void Imagem::adicionaBorda(){
-  
+  if(_matriz[0][0]==0){   //Verifica se a borda e preta
+    alocaNovaMatrizComBorda(2);
+    adicionaUmPixelDeBorda(1,255);
+    adicionaUmPixelDeBorda(0,0);
+  }
+  else{
+    alocaNovaMatrizComBorda(1);
+    adicionaUmPixelDeBorda(0,0);
+  }
 }
 
 void Imagem::criaImagemPreta(){
   for(int i=0;i<_dimensao;i++){
     for(int j=0;j<_dimensao;j++)
       _matriz[i][j] = 0;
+  }
+}
+
+void Imagem::alocaNovaMatrizComBorda(int tamanho_borda){
+  int** novaMatriz = new int*[_dimensao+(tamanho_borda*2)];
+  for(int i=0;i<_dimensao+(tamanho_borda*2);i++)
+    novaMatriz[i] = new int[_dimensao+(tamanho_borda*2)];
+
+  for(int i=tamanho_borda;i<_dimensao+tamanho_borda;i++)
+    for(int j=tamanho_borda;j<_dimensao+tamanho_borda;j++)
+      novaMatriz[i][j] = _matriz[i-tamanho_borda][j-tamanho_borda];
+
+  this->~Imagem();
+
+  _matriz = novaMatriz;
+  _dimensao += tamanho_borda*2;
+}
+
+void Imagem::adicionaUmPixelDeBorda(int index_borda, int cor){
+for(int i=index_borda;i<_dimensao-index_borda;i++){
+    for(int j=index_borda;j<_dimensao-index_borda;j++){
+      if(i==index_borda || i==_dimensao-1-index_borda)
+        _matriz[i][j] = cor;
+      else{
+        _matriz[i][index_borda] = cor;
+        _matriz[i][_dimensao-1-index_borda] = cor;
+      }
+    }
   }
 }

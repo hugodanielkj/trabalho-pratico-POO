@@ -15,7 +15,6 @@ int main ( ) {
 
   Imagem imgSomada = Imagem(dimensao);
   Imagem imgSubtraida = Imagem(dimensao);
-  Imagem imgInvertida = Imagem(dimensao);
 
   // Somando duas imagens
   img1.soma(img2, imgSomada); // imgSomada = img1 + img2
