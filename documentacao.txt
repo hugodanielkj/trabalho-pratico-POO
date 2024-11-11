@@ -1,6 +1,31 @@
 DOCUMENTACAO TRABALHO 1 - PROGRAMACAO 2
 
 OBSERVACOES:
-1. A maior parte das funcoes nao havera parametro como ocorre no pdf, pois as imagens do programa serao objetos da classe Imagem, por isso, quando precisar executar uma funcao, sera feita da seguinte forma: imagem1.leImagem() ao inves de ser feito da seguinte forma: leImagem(imagem 1). Isso foi feito para utilizar os conceitos de objeto e deixar o codigo mais limpo.
+* Pode-se colocar os proprios inputs os rodar o input dentro de input.txt para testar o programa.
 
-2. Nao havera a funcao criaImagemPreta, para que o codigo seja reutilizavel e nao haja mais de uma funcao de criar imagem de forma desnecessaria. Assim, a imagemPreta sera criada como qualquer outra imagem, utilizando o Constructor da classe Imagem.
+* A maior parte das funcoes nao havera parametro como ocorre no pdf, pois as imagens do programa serao objetos da classe Imagem, por isso, quando precisar executar uma funcao, sera feita da seguinte forma: imagem1.leImagem() ao inves de ser feito da seguinte forma: leImagem(imagem 1). Isso foi feito para utilizar os conceitos de objeto e deixar o codigo mais limpo.
+
+EXPLICAÇÃO DA CLASSE IMAGEM:
+A classe imagem possui 2 atributos: dimensão, que explicita a altura e a largura da imagem, e o ponteiro de ponteiro matriz, que armazena dinamicamente a matriz da imagem. Além disso, possui as seguintes funções que serão detalhadas abaixo.
+
+FUNCOES PRIVADAS:
+1. alocaNovaMatrizComBorda(int): funçao chamada dentro da funçao de adicionar borda. Cria um nova matriz com o tamanho da borda adicionada e copia a antiga matriz para dentro dela, apagando a antiga e atualizando com a nova matriz.
+
+2. adicionaUmPixelDeBorda(int, int): seleciona-se o pixel onde se encontra a borda que se quer fazer alteracoes e seleciona-se a cor que se quer colocar dentro.
+
+FUNCOES PUBLICAS:
+1. leImagem(): Faz a leitura de cada um dos pixels da matriz imagem.
+
+2. soma(Imagem img2, Imagem imgResultante): Soma os elementos da matriz que chamou a funçao soma() com os elementos da matriz img2 e coloca esses valores na imgResultante.
+
+3. subtrai(Imagem, Imagem): Subtrai os elementos da matriz que chamou a funçao subtrai() com os elementos da matriz img2 e coloca esses valores na imgResultante.
+
+4. inverteImagem(Imagem imgResultante): Inverte - por exemplo, faz com que a cor preta se torne branca - os elemententos da imagem que chamou a funçao inverteImagem() e coloca esses valores na imgResultante.
+
+5. compara(Imagem img2): Compara cada pixel da matriz da imagem que chamou a funçao compara() com cada pixel da matriz da img2. Se todos os pixels tiverem o mesmo valor, retorna true, caso contrario, retorna falso.
+
+6. imprimeImagem(): Imprime os valores existentes dentro de cada pixel da imagem que chamou a funçao imprimeImagem().
+
+7. adicionaBorda(int index_borda, int cor): O primeiro parametro index_borda localiza onde esta a borda que se deseja fazer alteraçoes. Assim que seleciona a borda, o segundo parametro cor faz com que todos os elementos dessa borda se tornem a nova cor. Tais aplicaçoes sao efetuadas na imagem que chama a funçao adicionaBorda().
+
+8. criaImagemPreta(): Faz com que todos os pixels da matriz da imagem que chamou a funçao criaImagemPreta() se tornem 0, equivalente ao pixel preto.

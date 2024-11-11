@@ -73,17 +73,17 @@ void Imagem::imprimeImagem(){
 
 void Imagem::adicionaBorda(){
   if(existeBordaBranca()){   //Verifica se a borda e branca
-    alocaNovaMatrizComBorda(1);
-    adicionaUmPixelDeBorda(0,0);
+    alocaNovaMatrizComBorda(1);   //Adiciona 1 dimensao a mais na matriz
+    adicionaUmPixelDeBorda(0,0);    //No index 0 da linha e da coluna referente a borda da matriz, coloca-se a cor preta = 0
   }
   else{   //Implementacao em imagens sem borda branca
-    alocaNovaMatrizComBorda(2);
-    adicionaUmPixelDeBorda(1,255);
-    adicionaUmPixelDeBorda(0,0);
+    alocaNovaMatrizComBorda(2);   //Adiciona 2 dimensoes a mais na matriz
+    adicionaUmPixelDeBorda(1,255);    //No index 1 da linha e da coluna referente a borda da matriz, coloca-se a cor branca = 255
+    adicionaUmPixelDeBorda(0,0);    //No index 0 da linha e da coluna referente a borda da matriz, coloca-se a cor branca = 0
   }
 }
 
-void Imagem::criaImagemPreta(){
+void Imagem::criaImagemPreta(){   //Cria uma imagem com todos os pixels pretos
   for(int i=0;i<_dimensao;i++){
     for(int j=0;j<_dimensao;j++)
       _matriz[i][j] = 0;
@@ -106,19 +106,19 @@ void Imagem::alocaNovaMatrizComBorda(int tamanho_borda){
 }
 
 void Imagem::adicionaUmPixelDeBorda(int index_borda, int cor){
-for(int i=index_borda;i<_dimensao-index_borda;i++){
+for(int i=index_borda;i<_dimensao-index_borda;i++){   //Comeca o loop na borda escolhida para dentro
   for(int j=index_borda;j<_dimensao-index_borda;j++){
-    if(i==index_borda || i==_dimensao-1-index_borda)
+    if(i==index_borda || i==_dimensao-1-index_borda)    //Selecionada a primeira e a ultima linha da borda e muda todas as colunas de tais linhas
       _matriz[i][j] = cor;
     else{
-      _matriz[i][index_borda] = cor;
-      _matriz[i][_dimensao-1-index_borda] = cor;
+      _matriz[i][index_borda] = cor;  //Muda todos elementos da primeira coluna da borda
+      _matriz[i][_dimensao-1-index_borda] = cor;    //Muda todos elementos da ultima coluna da borda
     }
   }
   }
 }
 
-bool Imagem::existeBordaBranca(){
+bool Imagem::existeBordaBranca(){   //Se na borda da imagem tiver 1 pixel diferente de 255, retorna falso
   for(int i=0;i<_dimensao;i++)
     for(int j=0;j<_dimensao;j++)
       if(i==0 || i==_dimensao-1){
