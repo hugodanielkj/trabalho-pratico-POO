@@ -72,13 +72,13 @@ void Imagem::imprimeImagem(){
 }
 
 void Imagem::adicionaBorda(){
-  if(_matriz[0][0]==0){   //Verifica se a borda e preta
-    alocaNovaMatrizComBorda(2);
-    adicionaUmPixelDeBorda(1,255);
+  if(existeBordaBranca()){   //Verifica se a borda e branca
+    alocaNovaMatrizComBorda(1);
     adicionaUmPixelDeBorda(0,0);
   }
-  else{
-    alocaNovaMatrizComBorda(1);
+  else{   //Implementacao em imagens sem borda branca
+    alocaNovaMatrizComBorda(2);
+    adicionaUmPixelDeBorda(1,255);
     adicionaUmPixelDeBorda(0,0);
   }
 }
@@ -116,4 +116,17 @@ for(int i=index_borda;i<_dimensao-index_borda;i++){
     }
   }
   }
+}
+
+bool Imagem::existeBordaBranca(){
+  for(int i=0;i<_dimensao;i++)
+    for(int j=0;j<_dimensao;j++)
+      if(i==0 || i==_dimensao-1){
+        if(_matriz[i][j]!=255)
+          return false;
+      } else {
+        if(_matriz[i][0]!=255 || _matriz[i][_dimensao-1]!=255)
+          return false;
+      }
+  return true;
 }

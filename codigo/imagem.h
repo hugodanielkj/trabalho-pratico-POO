@@ -7,6 +7,7 @@ class Imagem {
     //Private Methods
     void alocaNovaMatrizComBorda(int tamanho_borda);
     void adicionaUmPixelDeBorda(int index_borda, int cor);
+    bool existeBordaBranca();
 
   public:
     //Constructor
