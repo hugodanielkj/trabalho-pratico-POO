@@ -47,11 +47,11 @@ void Imagem::subtrai(Imagem &img2, Imagem &imgResultante){
         imgResultante._matriz[i][j] = 0;
 }
 
-void Imagem::inverteImagem(){
+void Imagem::inverteImagem(Imagem &imgResultante){
   for(int i=0;i<_dimensao;i++)
     for(int j=0;j<_dimensao;j++){
       int pixel_invertido = 255 - _matriz[i][j];
-      _matriz[i][j] = pixel_invertido;
+      imgResultante._matriz[i][j] = pixel_invertido;
     }    
 }
 
@@ -107,13 +107,13 @@ void Imagem::alocaNovaMatrizComBorda(int tamanho_borda){
 
 void Imagem::adicionaUmPixelDeBorda(int index_borda, int cor){
 for(int i=index_borda;i<_dimensao-index_borda;i++){
-    for(int j=index_borda;j<_dimensao-index_borda;j++){
-      if(i==index_borda || i==_dimensao-1-index_borda)
-        _matriz[i][j] = cor;
-      else{
-        _matriz[i][index_borda] = cor;
-        _matriz[i][_dimensao-1-index_borda] = cor;
-      }
+  for(int j=index_borda;j<_dimensao-index_borda;j++){
+    if(i==index_borda || i==_dimensao-1-index_borda)
+      _matriz[i][j] = cor;
+    else{
+      _matriz[i][index_borda] = cor;
+      _matriz[i][_dimensao-1-index_borda] = cor;
     }
+  }
   }
 }

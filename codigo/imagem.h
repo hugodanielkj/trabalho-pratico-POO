@@ -19,7 +19,7 @@ class Imagem {
     void leImagem();
     void soma(Imagem &img2, Imagem &imgResultante);
     void subtrai(Imagem &img2, Imagem &imgResultante);
-    void inverteImagem();
+    void inverteImagem(Imagem &imgResultante);
     bool compara(Imagem &img2);
     void imprimeImagem();
     void adicionaBorda();

@@ -15,6 +15,7 @@ int main ( ) {
 
   Imagem imgSomada = Imagem(dimensao);
   Imagem imgSubtraida = Imagem(dimensao);
+  Imagem imgInvertida = Imagem(dimensao);
 
   // Somando duas imagens
   img1.soma(img2, imgSomada); // imgSomada = img1 + img2
@@ -28,9 +29,9 @@ int main ( ) {
   imgSubtraida.imprimeImagem(); // Exibe a imagem resultante da subtracao
 
   // Invertendo uma imagem
-  img1.inverteImagem(); // Inverte os pixels da img1
+  img1.inverteImagem(imgInvertida); // Inverte os pixels da img1
   std::cout << "Imagem 1 invertida :" << std::endl;
-  img1.imprimeImagem(); // Exibe a imagem invertida
+  imgInvertida.imprimeImagem(); // Exibe a imagem invertida
 
   // Comparando duas imagens
   if(img1.compara(img2)){
@@ -51,7 +52,7 @@ int main ( ) {
   // Criando uma imagem branca
   Imagem imgBranca = Imagem(5); // Cria uma imagem preta de dimensao 5x5
   imgBranca.criaImagemPreta();
-  imgBranca.inverteImagem () ; // Inverte os pixels da imagem preta , tornando -os brancos
+  imgBranca.inverteImagem (imgBranca) ; // Inverte os pixels da imagem preta , tornando -os brancos
   std :: cout << " Imagem Branca :" << std :: endl ;
   imgBranca.imprimeImagem () ; // Exibe a imagem branca
   imgBranca.adicionaBorda () ; // Adiciona borda na imagem branca ( novo tamanho = > 7x7)
